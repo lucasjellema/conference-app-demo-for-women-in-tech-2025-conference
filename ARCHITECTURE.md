@@ -116,6 +116,23 @@ Handles the display of detailed session information in a modal popup.
 - `showSessionDetails(sessionId, conferenceData)`: Displays details for selected session
 - `hideSessionDetails()`: Closes the session detail modal
 
+### 7. Tag Cloud Service (tagCloudService.js)
+
+Manages the interactive tag cloud for topic-based session exploration.
+
+**Responsibilities**:
+- Generating and rendering the tag cloud visualization
+- Calculating tag sizes based on frequency in sessions
+- Handling tag selection for filtering sessions
+- Managing the tag cloud tab and UI interactions
+
+**Key Methods**:
+- `setupTagCloud(conferenceData, containerElement)`: Initializes the tag cloud functionality
+- `renderTagCloud(conferenceData)`: Creates and renders the tag visualization
+- `getTagCounts(conferenceData)`: Analyzes session data to count tag occurrences
+- `showSessionsByTag(tag)`: Triggers filtering to show sessions with selected tag
+- `resetTagFilter()`: Clears any active tag filter
+
 ## Architecture Visualization
 
 ```mermaid

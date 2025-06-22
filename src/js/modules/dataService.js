@@ -3,8 +3,30 @@
  * Handles fetching and processing conference data
  */
 
+// Dynamically determine the base path for assets
+const getBasePath = () => {
+    // Check if we're in a GitHub Pages environment (common URL pattern)
+    const path = window.location.pathname;
+    const isGitHubPages = /\/[\w-]+\/[\w-]+\/?$/.test(path) || /github\.io/.test(window.location.hostname);
+    
+    // If on GitHub Pages, we need to use the repository name as part of the path
+    if (isGitHubPages) {
+        // Extract the repo name from the URL path
+        const pathParts = path.split('/');
+        
+        // Remove empty strings and get the repo name (usually the last part)
+        const repoName = pathParts.filter(p => p).pop();
+        
+        // Return path with repo name if available
+        return repoName ? `/${repoName}` : '';
+    }
+    
+    // For local development or other environments
+    return '';
+};
+
 // Path to the conference data file
-const DATA_PATH = '/src/data/conference-data.json';
+const DATA_PATH = `${getBasePath()}/src/data/conference-data.json`;
 
 /**
  * Fetches conference data from the JSON file

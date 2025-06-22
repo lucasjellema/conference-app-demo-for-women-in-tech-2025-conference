@@ -1,0 +1,367 @@
+/* Global styles */
+:root {
+    --primary-color: #3a7bd5;
+    --secondary-color: #00d2ff;
+    --accent-color: #f47c48;
+    --light-bg: #f5f7fa;
+    --dark-text: #333;
+    --light-text: #fff;
+    --border-color: #ddd;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--dark-text);
+    background-color: var(--light-bg);
+}
+
+header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--light-text);
+    padding: 1rem 2rem;
+    text-align: center;
+}
+
+.search-container {
+    max-width: 500px;
+    margin: 1rem auto;
+    position: relative;
+}
+
+#search-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.search-results {
+    position: absolute;
+    width: 100%;
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    display: none;
+    max-height: 350px;
+    overflow-y: auto;
+    border: 1px solid var(--border-color);
+    margin-top: 5px;
+    font-size: 1rem;
+}
+
+.search-result-item {
+    padding: 1rem;
+    cursor: pointer;
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.2s;
+}
+
+.search-result-item:last-child {
+    border-bottom: none;
+}
+
+.search-result-item:hover {
+    background-color: var(--light-bg);
+}
+
+.result-title {
+    font-weight: bold;
+    font-size: 1.05rem;
+    color: var(--primary-color);
+    margin-bottom: 0.35rem;
+}
+
+.result-details {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.tabs {
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.tab-btn {
+    padding: 0.75rem 1.5rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-bottom: 3px solid transparent;
+}
+
+.tab-btn.active {
+    border-bottom: 3px solid var(--accent-color);
+    color: var(--primary-color);
+}
+
+.schedule {
+    margin-bottom: 2rem;
+}
+
+.day-schedule {
+    display: none;
+}
+
+.day-schedule.active {
+    display: block;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Tag Cloud Styles */
+.tag-cloud-container {
+    padding: 1rem 0;
+}
+
+.tag-cloud-container h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+}
+
+.tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.tag-cloud-item {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: var(--light-bg);
+    color: var(--primary-color);
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    user-select: none;
+}
+
+.tag-cloud-item:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tag-cloud-item.active {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.filtered-sessions-heading {
+    margin: 1rem 0;
+    padding: 0.5rem;
+    background-color: var(--light-bg);
+    border-radius: 4px;
+    font-size: 1rem;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.clear-filter-btn {
+    background-color: transparent;
+    border: none;
+    color: var(--primary-color);
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.clear-filter-btn:hover {
+    color: var(--accent-color);
+}
+
+.time-slot {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid var(--primary-color);
+}
+
+.time-slot-header {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.session {
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.session:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.session-room {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.session-title {
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+}
+
+.session-speaker {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.tag {
+    display: inline-block;
+    background-color: var(--light-bg);
+    color: var(--primary-color);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    margin-right: 0.25rem;
+    margin-top: 0.25rem;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 200;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 190;
+    display: none;
+}
+
+.modal-overlay.active {
+    display: block;
+}
+
+.modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 700px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    animation: modalFadeIn 0.3s;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #999;
+    cursor: pointer;
+    z-index: 210;
+    transition: color 0.2s;
+}
+
+.modal-close:hover {
+    color: var(--accent-color);
+}
+
+.session-detail {
+    padding: 2rem;
+}
+
+.session-detail-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.session-detail-speaker {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+}
+
+.session-detail-company {
+    color: #666;
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.session-detail-description {
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.session-detail-tags {
+    margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+    main {
+        padding: 1rem;
+    }
+    
+    .tabs {
+        flex-direction: column;
+    }
+    
+    .session-detail {
+        padding: 1rem;
+    }
+}
